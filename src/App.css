@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.buttons-game {
+  margin-top: 6cm;
+  margin-left: center;
+  margin-right: center;
+  margin-bottom: 2cm;
+}
+.button {
+  width: 1cm;
+}
+#rock {
+  cursor: pointer;
+}
+
+.icons {
+  width: 1.7cm;
+  margin-bottom: 10px;
+  margin-top: auto;
+  margin-left: 10px;
+  margin-right: auto;
+}
+.btn-outline-success {
+  width: 6cm;
+  height: 2cm;
+  font-size: 40px;
+}
+.btn-outline-warning {
+  width: 6cm;
+  height: 2cm;
+  font-size: 40px;
+}
+.btn-outline-danger {
+  width: 7cm;
+  height: 2cm;
+  font-size: 40px;
+}
+#startButton {
+  border-radius: 1cm;
+  width: 5cm;
+}
+#playerChoice {
+  width: 4cm;
+}
