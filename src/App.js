@@ -1,19 +1,9 @@
-import React from "react";
-
+import React, { useState } from "react";
+import rock from "./icons/rock.png";
+import paper from "./icons/paper.png";
+import scissors from "./icons/scissors.png";
 import "./App.css";
 
-function showRock() {
-  document.querySelectorAll("#playerChoice img")[0].src =
-    "https://cdn.icon-icons.com/icons2/1686/PNG/512/12020raisedfist_111487.png";
-}
-function showScissors() {
-  document.querySelectorAll("#playerChoice img")[0].src =
-    "https://cdn.icon-icons.com/icons2/1686/PNG/512/11959victoryhand_111462.png";
-}
-function showPaper() {
-  document.querySelectorAll("#playerChoice img")[0].src =
-    "https://cdn.icon-icons.com/icons2/1686/PNG/512/11996raisedhand_111512.png";
-}
 function randomNum() {
   const randomNumb = Math.round(Math.random() * 2);
   return randomNumb;
@@ -29,6 +19,11 @@ if (getCompChoice === 0) {
 }
 
 function App() {
+  const [currentChoice, setCurrentChoice] = useState(null);
+  const handleClick = (choice) => {
+    setCurrentChoice(choice);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -43,42 +38,33 @@ function App() {
       </header>
       <h1>Rock Paper Scissors THE GAME</h1>
       <div id="playerChoice">
-        <img src="https://www.hrica.gob.pe/images/cargando.gif"></img>
+        <img src={currentChoice}></img>
       </div>
       <div id="game">
         <div className="buttons-game" id="rock">
           <button
             value="rock"
             className="btn btn-outline-success"
-            onClick={showRock}
+            onClick={() => handleClick(rock)}
           >
             Rock
-            <img
-              className="icons"
-              src="https://cdn.icon-icons.com/icons2/1686/PNG/512/12020raisedfist_111487.png"
-            ></img>
+            <img className="icons" src={rock}></img>
           </button>
           <button
             value="scissors"
             className="btn btn-outline-danger"
-            onClick={showScissors}
+            onClick={() => handleClick(scissors)}
           >
             Scissors
-            <img
-              className="icons"
-              src="https://cdn.icon-icons.com/icons2/1686/PNG/512/11959victoryhand_111462.png"
-            ></img>
+            <img className="icons" src={scissors}></img>
           </button>
           <button
             value="paper"
             className="btn btn-outline-warning"
-            onClick={showPaper}
+            onClick={() => handleClick(paper)}
           >
             Paper
-            <img
-              className="icons"
-              src="https://cdn.icon-icons.com/icons2/1686/PNG/512/11996raisedhand_111512.png"
-            ></img>
+            <img className="icons" src={paper}></img>
           </button>
         </div>
       </div>
