@@ -19,10 +19,17 @@ if (getCompChoice === 0) {
 }
 
 function App() {
-  const [currentChoice, setCurrentChoice] = useState(null);
+  let computerChoice = "paper";
+  const [currentChoice, setCurrentChoice] = useState({
+    value: null,
+    img: null,
+  });
   const handleClick = (choice) => {
     setCurrentChoice(choice);
   };
+  if (currentChoice.value === computerChoice) {
+    console.log("draw");
+  }
 
   return (
     <div className="App">
@@ -37,15 +44,13 @@ function App() {
         </a>
       </header>
       <h1>Rock Paper Scissors THE GAME</h1>
-      <div id="playerChoice">
-        <img src={currentChoice}></img>
-      </div>
+
       <div id="game">
         <div className="buttons-game" id="rock">
           <button
             value="rock"
             className="btn btn-outline-success"
-            onClick={() => handleClick(rock)}
+            onClick={() => handleClick({ value: "rock", img: rock })}
           >
             Rock
             <img className="icons" src={rock}></img>
@@ -53,7 +58,7 @@ function App() {
           <button
             value="scissors"
             className="btn btn-outline-danger"
-            onClick={() => handleClick(scissors)}
+            onClick={() => handleClick({ value: "scissors", img: scissors })}
           >
             Scissors
             <img className="icons" src={scissors}></img>
@@ -61,11 +66,14 @@ function App() {
           <button
             value="paper"
             className="btn btn-outline-warning"
-            onClick={() => handleClick(paper)}
+            onClick={() => handleClick({ value: "paper", img: paper })}
           >
             Paper
             <img className="icons" src={paper}></img>
           </button>
+        </div>
+        <div id="playerChoice">
+          <img src={currentChoice}></img>
         </div>
       </div>
     </div>
